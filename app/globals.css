@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #0a0a0a;
+  color: #ededed;
+  line-height: 1.5;
+}
+
+header {
+  padding: 2rem;
+  border-bottom: 1px solid #222;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+header p {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+main {
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  border: 1px solid #222;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: #555;
+}
+
+.card h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card .preco {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #888;
+  text-decoration: none;
+}
+
+.back:hover {
+  color: #ededed;
+}
+
+.detalhe {
+  border: 1px solid #222;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.detalhe h2 {
+  margin-bottom: 1rem;
+}
+
+.detalhe .preco {
+  color: #4ade80;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
