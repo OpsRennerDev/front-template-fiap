@@ -1,10 +1,17 @@
 import Link from "next/link";
-import { api } from "@/lib/api";
+import { api, type Produto } from "@/lib/api";
 
 export const revalidate = 60;
 
 export default async function Home() {
-  const produtos = await api.listarProdutos();
+  let produtos: Produto[] = [];
+  let apiIndisponivel = false;
+
+  try {
+    produtos = await api.listarProdutos();
+  } catch {
+    apiIndisponivel = true;
+  }
 
   return (
     <>
@@ -12,6 +19,11 @@ export default async function Home() {
       <p style={{ color: "#888", marginTop: "0.5rem" }}>
         Esta página é Server Component com revalidate=60. Recarrega no servidor a cada minuto.
       </p>
+      {apiIndisponivel && (
+        <p style={{ color: "#c00", marginTop: "0.5rem" }}>
+          API indisponível no momento. Tente novamente em instantes.
+        </p>
+      )}
       <div className="grid">
         {produtos.map((p) => (
           <Link key={p.id} href={`/produto/${p.id}`} className="card">
